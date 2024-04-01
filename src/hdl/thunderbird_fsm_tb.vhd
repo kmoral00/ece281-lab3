@@ -60,8 +60,8 @@ architecture test_bench of thunderbird_fsm_tb is
 	  port(
 		i_clk, i_reset  : in    std_logic;
         i_left, i_right : in    std_logic;
-        o_lights_L      : out   std_logic_vector(2 downto 0);
-        o_lights_R      : out   std_logic_vector(2 downto 0)
+        o_lights_l      : out   std_logic_vector(2 downto 0);
+        o_lights_r      : out   std_logic_vector(2 downto 0)
 	  );
 	end component thunderbird_fsm;
 
@@ -108,8 +108,8 @@ begin
 	
 	w_reset <='1';
 	wait for k_clk_period*1;
-	   assert o_lights_R = "000" report "bad reset" severity failuer;
-	   assert o_lights_L = "000" report "bad reset" severity failuer;
+	   assert o_lights_r = "000" report "bad reset" severity failuer;
+	   assert o_lights_l = "000" report "bad reset" severity failuer;
 	   
    w_reset<='1';
    wait for k_clk_period;
@@ -118,11 +118,11 @@ begin
 	   --both lights
 	w_left<= '1'; w_right<='1';
 	wait for k_clk_period*1;
-	   assert o_lights_R = "111" report "bad lights" severity failuer;
-	   assert o_lights_L = "111" report "bad lights" severity failuer;
+	   assert o_lights_r = "111" report "bad lights" severity failuer;
+	   assert o_lights_l = "111" report "bad lights" severity failuer;
 	wait for k_clk_period*1;
-	   assert o_lights_R = "000" report "bad lights" severity failuer;
-	   assert o_lights_L= "000" report "bad lights" severity failuer;
+	   assert o_lights_r = "000" report "bad lights" severity failuer;
+	   assert o_lights_l= "000" report "bad lights" severity failuer;
 
    w_reset<='1';
    wait for k_clk_period;
@@ -131,14 +131,14 @@ begin
 	--right light
 	w_left<='0'; w_right<='1';
 	wait for k_clk_period*1;
-	   assert o_lights_R= "001" report "bad lights" severity failuer;
-	   assert o_lights_L="000" report "bad lights" severity failuer;
+	   assert o_lights_r= "001" report "bad lights" severity failuer;
+	   assert o_lights_l="000" report "bad lights" severity failuer;
 	wait for k_clk_period*1;
-	   assert o_lights_R="011" report "bad lights" severity failuer;
-	   assert o_lights_L="000" report "bad lights" severity failuer;
+	   assert o_lights_r="011" report "bad lights" severity failuer;
+	   assert o_lights_l="000" report "bad lights" severity failuer;
 	wait for k_clk_period*1;
-	   assert o_lights_R="111" report "bad lights" severity failuer;
-       assert o_lights_L="000" report "bad lights" severity failuer;
+	   assert o_lights_r="111" report "bad lights" severity failuer;
+       assert o_lights_l="000" report "bad lights" severity failuer;
     
        w_reset<='1';
        wait for k_clk_period;
@@ -147,14 +147,14 @@ begin
     --left lights
 	w_left<='1'; w_right<='0';
     wait for k_clk_period*1;
-       assert o_lights_R= "000" report "bad lights" severity failuer;
-       assert o_lights_L="001" report "bad lights" severity failuer;
+       assert o_lights_r= "000" report "bad lights" severity failuer;
+       assert o_lights_l="001" report "bad lights" severity failuer;
     wait for k_clk_period*1;
-       assert o_lights_R="000" report "bad lights" severity failuer;
-       assert o_lights_L="011" report "bad lights" severity failuer;
+       assert o_lights_r="000" report "bad lights" severity failuer;
+       assert o_lights_l="011" report "bad lights" severity failuer;
     wait for k_clk_period*1;
-       assert o_lights_R="000" report "bad lights" severity failuer;
-       assert o_lights_L="111" report "bad lights" severity failuer;
+       assert o_lights_r="000" report "bad lights" severity failuer;
+       assert o_lights_l="111" report "bad lights" severity failuer;
     
        w_reset<='1';
        wait for k_clk_period;
