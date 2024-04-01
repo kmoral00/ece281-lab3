@@ -110,8 +110,7 @@ begin
 	wait for k_clk_period*1;
 	   assert w_taillight_r = "000" report "bad reset" severity failure;
 	   assert w_taillight_l = "000" report "bad reset" severity failure;
-	   
-   w_reset<='1';
+	 w_reset <= '1';   
    wait for k_clk_period;
    w_reset<='0';
 	   
@@ -124,7 +123,7 @@ begin
 	   assert w_taillight_r = "000" report "bad lights" severity failure;
 	   assert w_taillight_l= "000" report "bad lights" severity failure;
 
-   w_reset<='1';
+    w_reset <= '1';
    wait for k_clk_period;
    w_reset<='0';
 	
@@ -140,7 +139,7 @@ begin
 	   assert w_taillight_r="111" report "bad lights" severity failure;
        assert w_taillight_l="000" report "bad lights" severity failure;
     
-       w_reset<='1';
+       w_reset <= '1';
        wait for k_clk_period;
        w_reset<='0';
     
@@ -156,7 +155,7 @@ begin
        assert w_taillight_r="000" report "bad lights" severity failure;
        assert w_taillight_l="111" report "bad lights" severity failure;
     
-       w_reset<='1';
+        w_reset <= '1';
        wait for k_clk_period;
        w_reset<='0';
        

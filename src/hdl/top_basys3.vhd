@@ -116,9 +116,9 @@ begin
     o_lights_L(2) => led(15),
     o_lights_L(1) => led(14),
     o_lights_L(0) => led(13),
-    o_lights_R(2) => led(5),
-    o_lights_R(1) => led(4),
-    o_lights_R(0) => led(3)
+    o_lights_R(2) => led(0),
+    o_lights_R(1) => led(1),
+    o_lights_R(0) => led(2)
 	
 	);
 	
@@ -131,8 +131,8 @@ begin
 	-- Ignore the warnings associated with these signals
 	-- Alternatively, you can create a different board implementation, 
 	--   or make additional adjustments to the constraints file
-	led(12 downto 6) <= (others => '0');
-	led(2 downto 0) <= (others => '0');
+	led(12 downto 3) <= (others => '0');
+	
 	
 	
 		clkdiv_inst : clock_divider 		--instantiation of clock_divider to take 
