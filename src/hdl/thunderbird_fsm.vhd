@@ -117,13 +117,13 @@ begin
 	f_Q_next(7) <= (f_Q(7) and i_left and i_right) or f_Q(0);
 	
 	-- Output logic
-	o_lights_l(2) <= f_Q(3) and f_Q(4) and f_Q(5);
-	o_lights_l(1) <= f_Q(4) and f_Q(5);
-	o_lights_l(0) <= f_Q(5);
+	o_lights_l(2) <= f_Q(3) and f_Q(4) and f_Q(5) and f_Q(6);
+	o_lights_l(1) <= f_Q(4) and f_Q(5) and f_Q(6);
+	o_lights_l(0) <= f_Q(5) and f_Q(6);
 	
-	o_lights_r(2) <= f_Q(0) and f_Q(1) and f_Q(2);
-	o_lights_r(1) <= f_Q(1) and f_Q(2);
-	o_lights_r(0) <= f_Q(2);
+	o_lights_r(2) <= f_Q(0) and f_Q(1) and f_Q(2) and f_Q(6);
+	o_lights_r(1) <= f_Q(1) and f_Q(2) and f_Q(6);
+	o_lights_r(0) <= f_Q(2) and f_Q(6);
 	
     ---------------------------------------------------------------------------------
 	
