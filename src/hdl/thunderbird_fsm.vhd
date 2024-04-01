@@ -112,7 +112,7 @@ begin
 	f_Q_next(2) <= f_Q(7) and i_left and not i_right;
 	f_Q_next(3) <=  f_Q(4);
 	f_Q_next(4) <= f_Q(5);
-	f_Q_next(5) <= f_Q(6) and not i_left and i_right;
+	f_Q_next(5) <= f_Q(7) and not i_left and i_right;
 	f_Q_next(6) <= f_Q(7) and i_left and i_right;
 	f_Q_next(7) <= (f_Q(7) and i_left and i_right) or f_Q(0);
 	
