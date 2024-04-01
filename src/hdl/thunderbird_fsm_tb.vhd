@@ -73,8 +73,8 @@ architecture test_bench of thunderbird_fsm_tb is
         signal w_clk : std_logic := '0';
         
     --Outputs
-       signal w_taillight_L : std_logic_vector(2 downto 0) := "000";
-       signal w_taillight_R : std_logic_vector(2 downto 0) := "000";
+       signal w_taillight_l : std_logic_vector(2 downto 0) := "000";
+       signal w_taillight_r : std_logic_vector(2 downto 0) := "000";
        
 	-- constants
 	constant k_clk_period : time := 10 ns;
@@ -86,8 +86,8 @@ begin
              i_reset => w_reset,
              i_left=>w_left,
              i_right=>w_right,
-             o_lights_r => w_taillight_R(2 downto 0),
-             o_lights_l => w_taillight_L(2 downto 0)
+             o_lights_r => w_taillight_r(2 downto 0),
+             o_lights_l => w_taillight_l(2 downto 0)
            );
 	-----------------------------------------------------
 	
@@ -108,8 +108,8 @@ begin
 	
 	w_reset <='1';
 	wait for k_clk_period*1;
-	   assert o_lights_r = "000" report "bad reset" severity failuer;
-	   assert o_lights_l = "000" report "bad reset" severity failuer;
+	   assert w_taillight_r = "000" report "bad reset" severity failuer;
+	   assert w_taillights_l = "000" report "bad reset" severity failuer;
 	   
    w_reset<='1';
    wait for k_clk_period;
@@ -118,11 +118,11 @@ begin
 	   --both lights
 	w_left<= '1'; w_right<='1';
 	wait for k_clk_period*1;
-	   assert o_lights_r = "111" report "bad lights" severity failuer;
-	   assert o_lights_l = "111" report "bad lights" severity failuer;
+	   assert w_tallights_r = "111" report "bad lights" severity failuer;
+	   assert w_taillights_l = "111" report "bad lights" severity failuer;
 	wait for k_clk_period*1;
-	   assert o_lights_r = "000" report "bad lights" severity failuer;
-	   assert o_lights_l= "000" report "bad lights" severity failuer;
+	   assert w_taillights_r = "000" report "bad lights" severity failuer;
+	   assert w_taillights_l= "000" report "bad lights" severity failuer;
 
    w_reset<='1';
    wait for k_clk_period;
@@ -131,14 +131,14 @@ begin
 	--right light
 	w_left<='0'; w_right<='1';
 	wait for k_clk_period*1;
-	   assert o_lights_r= "001" report "bad lights" severity failuer;
-	   assert o_lights_l="000" report "bad lights" severity failuer;
+	   assert w_taillights_r= "001" report "bad lights" severity failuer;
+	   assert w_taillights_l="000" report "bad lights" severity failuer;
 	wait for k_clk_period*1;
-	   assert o_lights_r="011" report "bad lights" severity failuer;
-	   assert o_lights_l="000" report "bad lights" severity failuer;
+	   assert w_taillights_r="011" report "bad lights" severity failuer;
+	   assert w_taillights_l="000" report "bad lights" severity failuer;
 	wait for k_clk_period*1;
-	   assert o_lights_r="111" report "bad lights" severity failuer;
-       assert o_lights_l="000" report "bad lights" severity failuer;
+	   assert w_taillights_r="111" report "bad lights" severity failuer;
+       assert w_taillights_l="000" report "bad lights" severity failuer;
     
        w_reset<='1';
        wait for k_clk_period;
@@ -147,14 +147,14 @@ begin
     --left lights
 	w_left<='1'; w_right<='0';
     wait for k_clk_period*1;
-       assert o_lights_r= "000" report "bad lights" severity failuer;
-       assert o_lights_l="001" report "bad lights" severity failuer;
+       assert w_taillights_r= "000" report "bad lights" severity failuer;
+       assert w_taillights_l="001" report "bad lights" severity failuer;
     wait for k_clk_period*1;
-       assert o_lights_r="000" report "bad lights" severity failuer;
-       assert o_lights_l="011" report "bad lights" severity failuer;
+       assert w_taillights_r="000" report "bad lights" severity failuer;
+       assert w_taillights_l="011" report "bad lights" severity failuer;
     wait for k_clk_period*1;
-       assert o_lights_r="000" report "bad lights" severity failuer;
-       assert o_lights_l="111" report "bad lights" severity failuer;
+       assert w_taillights_r="000" report "bad lights" severity failuer;
+       assert w_taillights_l="111" report "bad lights" severity failuer;
     
        w_reset<='1';
        wait for k_clk_period;
