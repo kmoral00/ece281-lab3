@@ -86,8 +86,8 @@ begin
              i_reset => w_reset,
              i_left=>w_left,
              i_right=>w_right,
-             o_lights_R => w_taillight_R(2 downto 0),
-             o_lights_L => w_taillight_L(2 downto 0)
+             o_lights_r => w_taillight_R(2 downto 0),
+             o_lights_l => w_taillight_L(2 downto 0)
            );
 	-----------------------------------------------------
 	
