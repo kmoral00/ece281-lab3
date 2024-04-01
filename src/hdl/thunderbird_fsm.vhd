@@ -89,8 +89,8 @@ entity thunderbird_fsm is
   port(
      i_clk, i_reset  : in    std_logic;
      i_left, i_right : in    std_logic;
-     o_lights_L      : out   std_logic_vector(2 downto 0);
-     o_lights_R      : out   std_logic_vector(2 downto 0)
+     o_lights_l      : out   std_logic_vector(2 downto 0);
+     o_lights_r      : out   std_logic_vector(2 downto 0)
   );
 end thunderbird_fsm;
 
@@ -117,13 +117,13 @@ begin
 	f_Q_next(7) <= (f_Q(7) and i_left and i_right) or f_Q(0);
 	
 	-- Output logic
-	o_lights_L(2) <= f_Q(3) and f_Q(4) and f_Q(5);
-	o_lights_L(1) <= f_Q(4) and f_Q(5);
-	o_lights_L(0) <= f_Q(5);
+	o_lights_l(2) <= f_Q(3) and f_Q(4) and f_Q(5);
+	o_lights_l(1) <= f_Q(4) and f_Q(5);
+	o_lights_l(0) <= f_Q(5);
 	
-	o_lights_R(2) <= f_Q(0) and f_Q(1) and f_Q(2);
-	o_lights_R(1) <= f_Q(1) and f_Q(2);
-	o_lights_R(0) <= f_Q(2);
+	o_lights_r(2) <= f_Q(0) and f_Q(1) and f_Q(2);
+	o_lights_r(1) <= f_Q(1) and f_Q(2);
+	o_lights_r(0) <= f_Q(2);
 	
     ---------------------------------------------------------------------------------
 	
